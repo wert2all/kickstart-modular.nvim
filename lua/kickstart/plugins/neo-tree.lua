@@ -11,10 +11,18 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>e', '<cmd>Neotree float reveal<cr>', desc = 'Toggle Explorer', silent = true },
   },
   opts = {
+    source_selector = { sources = { { source = 'filesystem' } } },
+    popup_border_style = 'single',
+    close_if_last_window = true,
     filesystem = {
+      filtered_items = {
+        hide_dotfiles = false,
+        hide_by_name = { '.git' },
+        always_show = { '.env' },
+      },
       window = {
         mappings = {
           ['\\'] = 'close_window',
